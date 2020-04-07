@@ -1,0 +1,5 @@
+#!/bin/sh
+docker build -t wrk .
+docker rm -f wrk1 wrk2
+docker run --name wrk1 --sysctl net.ipv4.ip_local_port_range="1024 65000" wrk &
+docker run --name wrk2 --sysctl net.ipv4.ip_local_port_range="1024 65000" wrk &

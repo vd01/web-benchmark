@@ -1,0 +1,4 @@
+#!/bin/sh
+docker build -t nginx1 .
+docker rm -f nginx1
+docker run -d --name nginx1 -p 8001:80 nginx1
