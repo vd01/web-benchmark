@@ -9,15 +9,45 @@ services:
       - net.ipv4.ip_local_port_range=1024 65000
     links:
       - tomcat1 
+    depends_on:
+      - tomcat1
   wrk2:
     build: wrk-tomcat
     sysctls:
       - net.ipv4.ip_local_port_range=1024 65000
     links:
       - tomcat1
+    depends_on:
+      - tomcat1
   wrk3:
     build: wrk-tomcat
     sysctls:
       - net.ipv4.ip_local_port_range=1024 65000
     links:
+      - tomcat1
+    depends_on:
+      - tomcat1
+  wrk4:
+    build: wrk-tomcat
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - tomcat1
+    depends_on:
+      - tomcat1
+  wrk5:
+    build: wrk-tomcat
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - tomcat1
+    depends_on:
+      - tomcat1
+  wrk6:
+    build: wrk-tomcat
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - tomcat1
+    depends_on:
       - tomcat1

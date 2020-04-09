@@ -4,19 +4,49 @@ services:
   nginx1:
     build: nginx
   wrk1:
-    build: wrk
+    build: wrk-nginx
     sysctls:
       - net.ipv4.ip_local_port_range=1024 65000
     links:
       - nginx1
   wrk2:
-    build: wrk
+    build: wrk-nginx
     sysctls:
       - net.ipv4.ip_local_port_range=1024 65000
     links:
       - nginx1
   wrk3:
-    build: wrk
+    build: wrk-nginx
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - nginx1
+  wrk4:
+    build: wrk-nginx
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - nginx1
+  wrk5:
+    build: wrk-nginx
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - nginx1
+  wrk6:
+    build: wrk-nginx
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - nginx1
+  wrk7:
+    build: wrk-nginx
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - nginx1
+  wrk8:
+    build: wrk-nginx
     sysctls:
       - net.ipv4.ip_local_port_range=1024 65000
     links:

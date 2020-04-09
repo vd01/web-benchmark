@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  nginx1:
+    build: nginx
+  nginx2:
+    build: nginx2
+    depends_on:
+      - nginx1
+    links:
+      - nginx1
+  wrk1:
+    build: wrk-nginx
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - "nginx2:nginx1"

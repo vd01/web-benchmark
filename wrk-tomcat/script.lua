@@ -1,3 +1,3 @@
 function delay()
-  return 5000
+  return 18000+math.random(4000)
 end

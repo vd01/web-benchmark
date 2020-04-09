@@ -1,0 +1,22 @@
+global
+	daemon
+	maxconn 300000
+	pidfile /var/run/haproxy.pid
+
+defaults
+	balance roundrobin
+	timeout client 60s
+	timeout connect 60s
+	timeout server 60s
+
+frontend http
+	bind :80
+	mode http
+	default_backend nginx
+
+backend nginx
+	mode http
+	server n1 192.168.128.2:80 source 192.168.128.3
+	server n2 192.168.144.2:80 source 192.168.144.3
+	server n3 192.168.160.2:80 source 192.168.160.3
+	server n4 192.168.176.2:80 source 192.168.176.3

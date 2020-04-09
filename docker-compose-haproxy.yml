@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  nginx1:
+    build: nginx
+  haproxy1:
+    build: haproxy
+    links:
+      - nginx1
+  wrk1:
+    build: wrk-haproxy
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - haproxy1
+  wrk2:
+    build: wrk-haproxy
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - haproxy1
+  wrk3:
+    build: wrk-haproxy
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - haproxy1
+  wrk4:
+    build: wrk-haproxy
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+    links:
+      - haproxy1
